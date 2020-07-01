@@ -7,15 +7,9 @@
 date_default_timezone_set('America/Sao_Paulo');
 
 
-stream_context_set_default(['http'=>['proxy'=>'10.221.113.200:4492']]); 
 
-
-
-
-$url="https://timbrasil.service-now.com/api/now/table/u_task_evento?sysparm_query=assignment_group.nameLIKENFVI^ORDERBYDESC&state=0&sysparm_fields=sys_created_on%2Cu_interrupcao_servicos%2Cstate%2Cimpact%2Cu_falha%2Cu_event.u_fabricante%2Cu_event.u_fabricante%2Cu_event.u_modelo%2Cu_event.u_nota_de_abertura%2Cu_ne_ids%2Cclosed_by.name%2Cnumber%2Cu_grupo_criados.u_setor&sysparm_display_value=true";
-$proxy = '10.221.113.200:4492';
-$proxyauth = 'nfvops:NFv10ps!!';
-
+# Insert your URL to request API ##
+$url=""
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$url);
 curl_setopt($ch, CURLOPT_PROXY, $proxy);
@@ -49,7 +43,7 @@ if($number === NULL){
 	
 	
 		$date = $rowtelegram[1];
-		$token = "746700805:AAGpKRhHXDSwmhhbCT9g2rAYwd1AZnubwV0";
+		$token = "";
 		$user_id = -358367738;
 		$msg= "Ticket: $number \n Criado em: $u_create \n Resumo da falha: $u_facility \n Elemento: $u_ne_ids \n Impacto: $impact \n Status: $state \n Interrupcao do serviço: $u_interrupcao";
 
